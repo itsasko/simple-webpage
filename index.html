@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Games</title>
+</head>
+<body>
+    <img id="fixed-picture" src="axolotl.png">
+</body>
+<!--fps - purple, platform - green, puzzle - orange, mobile - pink--> 
+
+<!-- Main Page -->
+<div id="main" class="page">
+    <h1>Some games</h1>
+    <input type="text" id="userInput" placeholder="Enter your phrase here">
+    <br>
+    <br>
+    <select id="gameSelect">
+        <option value="fps">fps</option>
+        <option value="platform">platform</option>
+        <option value="puzzle">puzzle</option>
+        <option value="mobile">mobile</option>
+    </select>
+    <button onclick="showSelectedPage()">send</button>
+
+</div>
+
+<!-- Page 1: FPS Games -->
+<div id="fps" class="page">
+    <a href="#main" onclick="showPage('main')">Back</a>
+    <h1>fps</h1>  
+</div>
+
+<!-- Page 2: Platform Games -->
+<div id="platform" class="page">
+    <a href="#main" onclick="showPage('main')">Back</a>
+    <h1>platform</h1>
+</div>
+
+<!-- Page 3: Puzzle Games -->
+<div id="puzzle" class="page">
+    <a href="#main" onclick="showPage('main')"; >Back</a>
+    <h1>puzzle</h1>
+</div>
+
+<!-- Page 4: Mobile Games -->
+<div id="mobile" class="page">
+    <a href="#main" onclick="showPage('main')">Back</a>
+    <h1>mobile</h1>
+</div>
+
+<script>
+    var lastAppendedElement;
+    var userInput;
+    var colors = ['#ffffff','#7e96ff', '#7aeb6b', '#ffb867', '#ff67bb'];
+    function showPage(pageId) {
+        var pages = document.getElementsByClassName('page');
+        if (pageId != 'main'){
+            displayImage(pageId);
+            displayUserInput();
+            rotateImage(); 
+        }
+        else{
+            removeLastChild();
+            removeAllImages();
+        }
+        for (var i = 0; i < 5; i++) {
+            if (pages[i].id === pageId) {
+                pages[i].style.display = 'block';
+                var color = i;             
+
+            } else {
+                pages[i].style.display = 'none';
+            }
+        }
+        setColor(colors[color]);       
+    }
+    function showSelectedPage() {
+        var selectedGame = document.getElementById('gameSelect').value;
+        showPage(selectedGame);
+    }
+    function displayUserInput() {
+        userInput = document.getElementById('userInput').value;
+        var newTextElement = document.createElement('p');
+        newTextElement.textContent = userInput;
+        document.body.appendChild(newTextElement);
+        lastAppendedElement = newTextElement;
+    }
+    function setColor(pageColor){
+        document.body.style.backgroundColor = pageColor;
+    }
+    var images_fps = [
+        "fps-doom.png",
+        "fps-quake.jpg",
+        "fps-over.jpg",
+    ];
+    var images_platform = [
+        "platform-braid.jpg",
+        "platform-bridge.jpg",
+        "platform-limbo.jpg",
+        "platform-smth.jpg",
+    ];
+    var images_puzzle = [
+        "puzzle-braid.jpg",
+        "puzzle-monum.jpg",
+        "puzzle-portal.jpg",
+        "puzzle-theroom.jpg",
+    ];
+    var images_mobile = [
+        "mobile-flow.jpg",
+        "mobile-subvey.jpg",
+        "mobile-mekorama.png",
+    ];
+    function getRandomImage(pageId) {
+        switch(pageId){
+            case "fps": 
+                var randomIndex = Math.floor(Math.random() * images_fps.length);
+                var imgElement = document.createElement(images_fps[randomIndex]);
+                return images_fps[randomIndex];
+                break;
+            case "platform": 
+                var randomIndex = Math.floor(Math.random() * images_platform.length);
+                var imgElement = document.createElement(images_platform[randomIndex]);
+                return images_platform[randomIndex];
+                break;
+            case "puzzle": 
+                var randomIndex = Math.floor(Math.random() * images_puzzle.length);
+                var imgElement = document.createElement(images_puzzle[randomIndex]);
+                return images_puzzle[randomIndex];
+                break;
+            case "mobile": 
+                var randomIndex = Math.floor(Math.random() * images_mobile.length);
+                var imgElement = document.createElement(images_mobile[randomIndex]);
+                return images_mobile[randomIndex];
+                break;
+        }
+        
+    }
+    function displayImage(pageId) {
+        var existingImage = document.getElementById('d_img');
+        if(existingImage) {
+            existingImage.src = getRandomImage(pageId);
+            image.style.position = 'fixed';
+            image.style.top = '50%';
+            image.style.left = '50%';
+            image.style.transform = 'translate(-50%, -50%)';
+            image.style.width = '50%';
+        }
+        else{
+            var image = new Image();
+            image.id = 'd_img';
+            image.src = getRandomImage(pageId);
+            document.body.appendChild(image);
+
+            image.style.position = 'fixed';
+            image.style.top = '50%';
+            image.style.left = '50%';
+            image.style.transform = 'translate(-50%, -50%)';
+            image.style.width = '50%';
+        }
+    };
+    function removeAllImages() {
+        var existingImage = document.getElementById('d_img');
+        if (existingImage) {
+            existingImage.remove(); 
+        }
+    };
+    function removeLastChild(){
+        lastAppendedElement.remove();
+    };
+    var currentRotation = 0;
+    function rotateImage() {
+    var degrees = userInput.length * 10;
+    var image = document.getElementById('fixed-picture');
+    currentRotation += degrees;
+    image.style.transform = 'rotate(' + currentRotation + 'deg)';
+}
+
+
+</script>
+
+</html>

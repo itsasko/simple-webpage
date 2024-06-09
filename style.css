@@ -1,0 +1,76 @@
+.page {
+    display: none;
+}
+#fixed-picture {
+    position: fixed;
+    top: 1px;
+    right: 1px;
+    z-index: 9999;
+    transform-origin: center;
+}
+#doom {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 50%;
+    height: auto;
+}
+#main {
+    display: block;
+}
+p {
+    font-family: Helvetica;
+    font-size: 32px;
+    font-style: italic;
+    color: #333;
+}
+
+h1 { 
+    font-family: Helvetica;
+    font-size: 32px;
+    color: #132a35; 
+    padding: 20px;
+}
+
+::placeholder {
+    font-size: 32px;
+    color: #040716;
+    font-style: italic;
+}
+
+input {
+    font-size: 32px;
+    width: 70%; 
+    height: 70px; 
+    padding: 20px;
+    background-color: #b5c2ee;
+    border: 2px solid #3a6aee;
+}
+
+select {
+    appearance: none; /*hide the default arrow*/
+    border: none; 
+    padding: 10px 20px;
+    font-size: 32px;
+    border-radius: 30px;
+    background-color: #6781ff;
+    width: 400px;
+    height: 70px;
+}
+
+button {
+    background-color: #3badcf;
+    color: white;
+    padding: 10px 20px;/*top-bottom, left-right*/
+    font-size: 32px;
+    border: none; 
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+a {
+    font-size: 32px; /* Set the font size */
+    color: rgb(71, 60, 235); /* Set the text color */
+    text-decoration: none; /* Remove underline */
+    font-weight: bold; /* Set font weight to bold */
+}
