@@ -41,7 +41,7 @@ The elements correspond to gaming categories:
 Each category has its own set of images to randomly display on the results page.
 
 ---
-🖼️ Screenshot
+## 🖼️ Screenshot
 
 ![Main page screenshot](screenshots/screenshot1.png)
 ![Results page screenshot](screenshots/screenshot2.png)
