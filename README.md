@@ -43,9 +43,9 @@ Each category has its own set of images to randomly display on the results page.
 ---
 🖼️ Screenshot
 
-![Main page screenshot](screenshot/screenshot1.png)
-![Results page screenshot](screenshot/screenshot2.png)
-![Result page screenshot 2](screenshot/screenshot3.png)
+![Main page screenshot](screenshots/screenshot1.png)
+![Results page screenshot](screenshots/screenshot2.png)
+![Result page screenshot 2](screenshots/screenshot3.png)
 
 ## 🚀 How to Run
 
